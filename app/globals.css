@@ -1,0 +1,439 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Premium dark theme with cyan/blue accents */
+  --background: oklch(5.317% 0.02182 29.223);
+  --foreground: oklch(0.98 0.01 240);
+  --card: oklch(0.10 0.01 240);
+  --card-foreground: oklch(0.98 0.01 240);
+  --popover: oklch(0.10 0.01 240);
+  --popover-foreground: oklch(0.98 0.01 240);
+  --primary: oklch(0.72 0.22 195);
+  --primary-foreground: oklch(0.06 0.01 240);
+  --secondary: oklch(0.15 0.01 240);
+  --secondary-foreground: oklch(0.98 0.01 240);
+  --muted: oklch(0.35 0.02 240);
+  --muted-foreground: oklch(0.70 0.03 240);
+  --accent: oklch(0.68 0.20 175);
+  --accent-foreground: oklch(0.06 0.01 240);
+  --destructive: oklch(0.63 0.26 25);
+  --destructive-foreground: oklch(0.95 0.01 250);
+  --border: oklch(0.16 0.01 240);
+  --input: oklch(0.12 0.01 240);
+  --ring: oklch(0.72 0.22 195);
+  --chart-1: oklch(0.72 0.22 195);
+  --chart-2: oklch(0.68 0.20 175);
+  --chart-3: oklch(0.65 0.18 160);
+  --chart-4: oklch(0.70 0.15 30);
+  --chart-5: oklch(0.62 0.14 280);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: none;
+  }
+}
+
+/* Advanced cursor animations with glow effects */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(102, 200, 255, 0.8), 0 0 40px rgba(102, 200, 255, 0.4);
+  mix-blend-mode: lighten;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: lighten;
+  opacity: 0.6;
+}
+
+a, button, [role="button"], label {
+  cursor: none !important;
+}
+
+a:hover, button:hover, [role="button"]:hover, label:hover {
+  cursor: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 4px;
+}
+
+/* Enhanced advanced animations for premium hero section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes magneticHover {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -60px) scale(1.1);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+  75% {
+    transform: translate(60px, 60px) scale(1.05);
+  }
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(102, 200, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(102, 200, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+  }
+}
+
+@keyframes floatRotate {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotateZ(10deg);
+  }
+  66% {
+    transform: translateY(-10px) rotateZ(-5deg);
+  }
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+@keyframes expandingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(102, 200, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(102, 200, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(102, 200, 255, 0);
+  }
+}
+
+/* Add network mesh and section background animations */
+@keyframes networkPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slideInFromLeft {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-shimmer {
+  animation: shimmer 4s infinite;
+  background: linear-gradient(90deg, transparent, rgba(102, 200, 255, 0.3), transparent);
+  background-size: 1200px 100%;
+}
+
+.animate-blob {
+  animation: blob 8s infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-float-rotate {
+  animation: floatRotate 6s ease-in-out infinite;
+}
+
+.animate-expandingPulse {
+  animation: expandingPulse 2s ease-out infinite;
+}
+
+.network-background {
+  animation: networkPulse 4s ease-in-out infinite;
+}
+
+.mesh-section {
+  position: relative;
+  background: linear-gradient(135deg, rgba(6, 20, 40, 0.5), rgba(15, 23, 42, 0.5));
+}
+
+/* Premium animated gradient text for "& UI/UX Designer" */
+.animated-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #66c8ff 0%,
+    #00ffff 25%,
+    #66d9ff 50%,
+    #00d4ff 75%,
+    #66c8ff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 5s ease-in-out infinite;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  filter: drop-shadow(0 0 20px rgba(102, 200, 255, 0.4));
+}
+
+/* Enhanced glow effect for animated text */
+.text-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Premium card and interactive element styles */
+.glass-morphism {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(102, 200, 255, 0.15);
+}
+
+.glow-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(20, 30, 50, 0.8)) border-box;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.interactive-card {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 200, 255, 0.15), transparent);
+  transition: left 0.6s;
+}
+
+.interactive-card:hover::before {
+  left: 100%;
+}
+
+.interactive-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: var(--primary);
+  box-shadow: 0 25px 60px rgba(102, 200, 255, 0.25);
+}
+
+/* Add shutter opening animation for hero name reveal */
+@keyframes shutterOpen {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes shutterOpenLeft {
+  0% {
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+}
+
+@keyframes shutterOpenRight {
+  0% {
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  }
+  100% {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+  }
+}
+
+.animate-shutter-open {
+  animation: shutterOpen 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-shutter-left {
+  animation: shutterOpenLeft 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-shutter-right {
+  animation: shutterOpenRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.1s;
+}
