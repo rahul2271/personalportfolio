@@ -96,7 +96,7 @@ export default function NetworkBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-20 opacity-50"
+      className="fixed inset-0 -z-20 opacity-100"
     />
   )
 }
