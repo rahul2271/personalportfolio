@@ -4,10 +4,10 @@
 
 :root {
   /* Premium dark theme with cyan/blue accents */
-  /*--background: oklch(5.317% 0.02182 29.223); */
-  --background: transparent; 
-  /*--foreground: oklch(0.98 0.01 240);*/
-  --foreground: transparent;
+  --background: oklch(5.317% 0.02182 29.223); 
+  
+  --foreground: oklch(0.98 0.01 240);
+  
   --card: oklch(0.10 0.01 240);
   --card-foreground: oklch(0.98 0.01 240);
   --popover: oklch(0.10 0.01 240);
