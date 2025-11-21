@@ -14,7 +14,7 @@ import NetworkBackground from '@/components/network-background'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background/60">
       <NetworkBackground />
       <Header />
       <Hero />
