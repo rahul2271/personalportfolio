@@ -51,9 +51,9 @@ export default function Contact() {
         <div className="grid md:grid-cols-5 gap-12">
           <div className="md:col-span-2 space-y-4">
             {[
-              { icon: Mail, label: 'Email me', value: 'rahul@example.com', href: 'mailto:rahul@example.com' },
-              { icon: Linkedin, label: 'Connect on', value: 'LinkedIn', href: '#' },
-              { icon: Github, label: 'Check my code', value: 'GitHub', href: '#' },
+              { icon: Mail, label: 'Email me', value: 'rraahhuullch@gmail.com', href: 'mailto:rraahhuullch@gmail.com' },
+              { icon: Linkedin, label: 'Connect on', value: 'LinkedIn', href: 'https://www.linkedin.com/in/er-rahul-chauhan/' },
+              { icon: Github, label: 'Check my code', value: 'GitHub', href: 'https://github.com/rahul2271' },
             ].map((contact, i) => {
               const Icon = contact.icon
               return (

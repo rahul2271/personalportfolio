@@ -35,9 +35,9 @@ export default function Footer() {
               <h4 className="font-semibold mb-4 text-foreground">Connect</h4>
               <ul className="space-y-2">
                 {[
-                  { icon: Github, label: 'GitHub', href: '#' },
-                  { icon: Linkedin, label: 'LinkedIn', href: '#' },
-                  { icon: Mail, label: 'Email', href: '#' },
+                  { icon: Github, label: 'GitHub', href: 'https://github.com/rahul2271' },
+                  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/er-rahul-chauhan/' },
+                  { icon: Mail, label: 'Email', href: '#contact' },
                 ].map(({ icon: Icon, label, href }) => (
                   <li key={label}>
                     <a href={href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-sm">
